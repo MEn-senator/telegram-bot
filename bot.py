@@ -8,7 +8,8 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, Cal
 # BOT TOKEN (ENV SAFE)
 # =========================
 BOT_TOKEN = os.getenv("8632372730:AAEIax1eUT0SY7ddFg2Q4u3qceAXLKqiVh0")
-
+import os
+print("BOT TOKEN DEBUG:", repr(os.getenv("8632372730:AAEIax1eUT0SY7ddFg2Q4u3qceAXLKqiVh0")))
 # =========================
 # SYMBOL NORMALIZER
 # =========================
