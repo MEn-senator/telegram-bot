@@ -3,6 +3,8 @@ import sys
 import aiohttp
 import asyncio
 
+from dotenv import load_dotenv
+
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
 from telegram.ext import (
     ApplicationBuilder,
@@ -14,16 +16,17 @@ from telegram.ext import (
 )
 
 # =========================
-# SAFE ENV CHECK (IMPORTANT)
+# ENV LOAD
 # =========================
+load_dotenv()
+
 BOT_TOKEN = os.getenv("8632372730:AAEIax1eUT0SY7ddFg2Q4u3qceAXLKqiVh0")
 
 if not BOT_TOKEN or len(BOT_TOKEN) < 20:
-    print("❌ BOT_TOKEN is missing or invalid!")
-    print("👉 Check Render Environment Variables (BOT_TOKEN)")
+    print("ERROR: BOT_TOKEN missing or invalid")
     sys.exit(1)
 
-print("✅ BOT TOKEN LOADED SUCCESSFULLY")
+print("BOT TOKEN LOADED")
 
 
 # =========================
@@ -45,7 +48,7 @@ def normalize_symbol(symbol: str):
 
 
 # =========================
-# BINANCE ENGINE
+# BINANCE API
 # =========================
 BINANCE_FUTURES = "https://fapi.binance.com"
 
@@ -101,22 +104,22 @@ def ai_score(long, short, funding):
 
 def ai_label(score):
     if score >= 20:
-        return "🟢 Bullish"
+        return "Bullish"
     elif score <= -20:
-        return "🔴 Bearish"
-    return "🟡 Neutral"
+        return "Bearish"
+    return "Neutral"
 
 
 def ai_view(score, long, short, funding):
     if score > 20:
-        return f"Bullish bias ({long:.1f}% vs {short:.1f}%)"
+        return f"Long dominance ({long:.1f}% vs {short:.1f}%)"
     elif score < -20:
-        return f"Bearish pressure ({short:.1f}%)"
-    return f"Neutral structure ({long:.1f}% / {short:.1f}%)"
+        return f"Short pressure ({short:.1f}%)"
+    return f"Balanced structure ({long:.1f}% / {short:.1f}%)"
 
 
 # =========================
-# AVANTIS LINK
+# LINK
 # =========================
 def avantis_link(symbol):
     return f"https://www.avantisfi.com/trade?asset={symbol.replace('USDT','-USD')}"
@@ -127,20 +130,19 @@ def avantis_link(symbol):
 # =========================
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
-        ["📊 VIP Analysis"],
-        ["🚀 Trade on Avantis"],
-        ["📡 Macro Wire"]
+        ["VIP Analysis"],
+        ["Trade on Avantis"],
+        ["Macro Wire"]
     ]
 
     await update.message.reply_text(
-        "🔥 BASTIS TRADER INTELLIGENCE\n"
-        "━━━━━━━━━━━━━━━━━━",
+        "BASTIS TRADER INTELLIGENCE",
         reply_markup=ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
     )
 
 
 # =========================
-# BUILD
+# BUILD MESSAGE
 # =========================
 async def build(symbol):
 
@@ -157,30 +159,24 @@ async def build(symbol):
     label = ai_label(score)
     view = ai_view(score, long, short, funding)
 
-    trade_url = avantis_link(sym)
+    url = avantis_link(sym)
 
     text = f"""
-━━━━━━━━━━━━━━━━━━
-🪙 ASSET: {symbol.upper()}
-━━━━━━━━━━━━━━━━━━
+ASSET: {symbol.upper()}
 
-💰 PRICE: ${price}
-📊 LONG: {long:.2f}%
-📉 SHORT: {short:.2f}%
-💸 FUNDING: {funding:.6f}
-📦 OI: {oi:.2f}
+PRICE: {price}
+LONG: {long:.2f}%
+SHORT: {short:.2f}%
+FUNDING: {funding:.6f}
+OI: {oi:.2f}
 
-━━━━━━━━━━━━━━━━━━
-🧠 SCORE: {score}/100 {label}
+SCORE: {score}/100 {label}
 
-🧠 VIEW:
-{view}
-
-━━━━━━━━━━━━━━━━━━
+VIEW: {view}
 """
 
     keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("🚀 Trade", url=trade_url)]
+        [InlineKeyboardButton("Trade", url=url)]
     ])
 
     return text, keyboard
@@ -190,13 +186,13 @@ async def build(symbol):
 # HANDLE
 # =========================
 async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = update.message.text.lower()
+    text = update.message.text.upper()
 
-    if text == "📊 vip analysis":
-        await update.message.reply_text("Send symbol (BTC, ETH, SOL)")
+    if text == "VIP ANALYSIS":
+        await update.message.reply_text("Send symbol")
         return
 
-    if text == "🚀 trade on avantis":
+    if text == "TRADE ON AVANTIS":
         await update.message.reply_text("Send symbol")
         return
 
@@ -212,5 +208,5 @@ app = ApplicationBuilder().token(BOT_TOKEN).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle))
 
-print("🔥 BOT RUNNING...")
+print("BOT RUNNING")
 app.run_polling()
