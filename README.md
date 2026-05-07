@@ -19,7 +19,7 @@ from telegram.ext import (
 # =========================
 load_dotenv()
 
-BOT_TOKEN = os.getenv("8632372730:AAEIax1eUT0SY7ddFg2Q4u3qceAXLKqiVh0")
+BOT_TOKEN = "8632372730:AAEIax1eUT0SY7ddFg2Q4u3qceAXLKqiVh0"
 
 if not BOT_TOKEN:
     print("BOT_TOKEN NOT FOUND")
