@@ -187,7 +187,7 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # =========================
 # APP
 # =========================
-app = ApplicationBuilder().token(BOT_TOKEN).build()
+app = ApplicationBuilder().token(8632372730:AAEIax1eUT0SY7ddFg2Q4u3qceAXLKqiVh0).build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle))
