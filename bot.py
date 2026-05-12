@@ -3,21 +3,7 @@ import sys
 import aiohttp
 import asyncio
 
-from dotenv import load_dotenv
-
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
-
-
-# =========================
-# ENV
-# =========================
-load_dotenv()
-
-BOT_TOKEN = "8632372730:AAEIax1eUT0SY7ddFg2Q4u3qceAXLKqivvvvvh0"
-
-if not BOT_TOKEN:
-    print("BOT_TOKEN NOT FOUND")
-    sys.exit(1)
+from dotenv import load_dotenvhgjktfdbvb
 
 print("BOT TOKEN OK")
 
