@@ -26,24 +26,7 @@ def score(long, short, funding):
     s += -8 if funding > 0 else 8
     return round(max(min(s, 100), -100), 2)
 
-
-def label(s):
-    if s >= 20:
-        return "Bullish"
-    if s <= -20:
-        return "Bearish"
-    return "Neutral"
-
-
-# =========================
-# LINK
-# =========================
-def link(symbol):
-    return f"https://www.avantisfi.com/trade?asset={symbol.replace('USDT','-USD')}"
-
-        "TRADER BOT ACTIVE",
-        reply_markup=ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
-    )
+,hgjjl
 
 
 # =========================
