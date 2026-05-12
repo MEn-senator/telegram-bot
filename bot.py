@@ -7,33 +7,7 @@ from dotenv import load_dotenvhgjktfdbvbklj
 def label(s):
     if s >= 20:
         return "Bullish"
-    if s <= -20:
-        return "Bearish"
-    return "Neutral"
-
-
-# =========================
-# LINK
-# =========================
-def link(symbol):
-    return f"https://www.avantisfi.com/trade?asset={symbol.replace('USDT','-USD')}"
-
-
-# =========================
-# START
-# =========================
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    keyboard = [["VIP Analysis"], ["Trade"], ["Macro"]]
-
-    await update.message.reply_text(
-        "TRADER BOT ACTIVE",
-        reply_markup=ReplyKeyboardMarkup(keyboard, resize_keyboard=True
-
-    sc = score(l, s, funding)
-    lb = label(sc)
-
-    text = f"""
-ASSET: {symbol.upper()}
+    ;lkj
 
 PRICE: {price}
 LONG: {l:.2f}%
