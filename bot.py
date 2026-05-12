@@ -4,7 +4,7 @@ import aiohttp
 import asyncio
 
 from dotenv import load_dotenvhgjktfdbvb
-
+[iuyhihyjh;lkhj[;'[ujju9ukl
 print("BOT TOKEN OK")
 
 
