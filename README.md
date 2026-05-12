@@ -4,22 +4,6 @@ import aiohttp
 import asyncio
 
 print("BOT TOKEN OK")
-
-
-# =========================
-# CONSTANTS
-# =========================
-BINANCE_FUTURES = "https://fapi.binance.com"
-
-
-# =========================
-# HTTP CLIENT (REUSABLE)
-# =========================
-session = aiohttp.ClientSession()
-
-
-async def fetch_json(url):
-    try:
         async with session.get(url, timeout=10) as resp:
             return await resp.json()
     except:
