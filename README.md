@@ -41,50 +41,6 @@ def label(s):
 def link(symbol):
     return f"https://www.avantisfi.com/trade?asset={symbol.replace('USDT','-USD')}"
 
-
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
-
-# =========================
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    keyboard = [["VIP Analysis"], ["Trade"], ["Macro"]]
-
-    await update.message.reply_text(
         "TRADER BOT ACTIVE",
         reply_markup=ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
     )
