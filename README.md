@@ -18,27 +18,7 @@ def normalize_symbol(symbol: str):
 
     mapping = {
         "BTC": "BTCUSDT",
-        "ETH": "ETHUSDT",
-        "SOL": "SOLUSDT",
-        "BNB": "BNBUSDT",
-        "XRP": "XRPUSDT",
-        "DOGE": "DOGEUSDT"
-    }
-
-    return mapping.get(symbol, symbol + "USDT")
-
-
-# =========================
-# BINANCE DATA
-# =========================
-async def get_price(symbol):
-    data = await fetch_json(f"{BINANCE_FUTURES}/fapi/v1/ticker/price?symbol={symbol}")
-    return float(data.get("price") or 0)
-
-
-async def get_funding(symbol):
-    data = await fetch_json(f"{BINANCE_FUTURES}/fapi/v1/premiumIndex?symbol={symbol}")
-    return float(data.get("lastFundingRate") or 0)
+iku;hi(data.get("lastFundingRate") or 0)
 
 
 async def get_open_interest(symbol):
