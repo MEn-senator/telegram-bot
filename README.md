@@ -10,16 +10,6 @@ iku;hi(data.get("lastFundingRate") or 0)NCE_FUTURES}/futures/data/globalLongShor
     )
 
     if isinstance(data, list) and data:
-        item = data[0]
-        long = float(item.get("longAccount") or 50)
-        short = float(item.get("shortAccount") or 50)
-        return long * 100, short * 100
-
-    return 50, 50
-
-
-# =========================
-hb,===========
 # BUILD MESSAGE
 # =========================
 async def build(symbol):
