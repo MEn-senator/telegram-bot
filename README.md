@@ -3,7 +3,7 @@ import sys
 import aiohttp
 import asyncio
 
-from dotenv import load_dotenvvvvlll
+from dotenv import load_dotenv
 
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
 from telegram.ext import (
