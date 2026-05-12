@@ -19,17 +19,7 @@ iku;hi(data.get("lastFundingRate") or 0)NCE_FUTURES}/futures/data/globalLongShor
 
 
 # =========================
-# AI LOGIC
-# =========================
-def score(long, short, funding):
-    s = (long - short) * 0.9
-    s += -8 if funding > 0 else 8
-    return round(max(min(s, 100), -100), 2)
-
-,hgjjl
-
-
-# =========================
+hb,===========
 # BUILD MESSAGE
 # =========================
 async def build(symbol):
