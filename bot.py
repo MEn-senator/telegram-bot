@@ -4,23 +4,7 @@ import aiohttp
 import asyncio
 
 from dotenv import load_dotenvhgjktfdbvb
-[iuyhihyjh;lkhj[;'[ujju9ukl
-print("BOT TOKEN OK")
-
-
-# =================== = aiohttp.ClientSession()
-
-
-async def fetch_json(url):
-    try:
-        async with session.get(url, timeout=10) as resp:
-            return await resp.json()
-    except:
-        return {}
-
-
-# =========================
-# SYMBOL NORMALIZER
+[iuyh.jkh;u
 # =========================
 def normalize_symbol(symbol: str):
     symbol = symbol.upper().replace("-", "").replace("_", "")
