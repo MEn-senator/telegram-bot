@@ -8,16 +8,7 @@ from dotenv import load_dotenvhgjktfdbvb
 print("BOT TOKEN OK")
 
 
-# =========================
-# CONSTANTS
-# =========================
-BINANCE_FUTURES = "https://fapi.binance.com"
-
-
-# =========================
-# HTTP CLIENT (REUSABLE)
-# =========================
-session = aiohttp.ClientSession()
+# =================== = aiohttp.ClientSession()
 
 
 async def fetch_json(url):
