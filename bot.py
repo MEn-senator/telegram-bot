@@ -13,19 +13,6 @@ def normalize_symbol(symbol: str):
     return float(data.get("price") or 0)
 
 
-async def get_funding(symbol):
-    data = await fetch_json(f"{BINANCE_FUTURES}/fapi/v1/premiumIndex?symbol={symbol}")
-    return float(data.get("lastFundingRate") or 0)
-
-
-async def get_open_interest(symbol):
-    data = await fetch_json(f"{BINANCE_FUTURES}/fapi/v1/openInterest?symbol={symbol}")
-    return float(data.get("openInterest") or 0)
-
-
-async def get_long_short(symbol):
-    data = await fetch_json(
-    ko;nding):
     s = (long - short) * 0.9
     s += -8 if funding > 0 else 8
     return round(max(min(s, 100), -100), 2)
