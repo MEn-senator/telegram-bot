@@ -3,21 +3,7 @@ import sys
 import aiohttp
 import asyncio
 
-from dotenv import load_dotenvhgjktfdbvb
-[iuyh.jkh;u
-# =========================
-def normalize_symbol(symbol: str):
-    symbol = symbol.upper().replace("-", "").replace("_", "")
-
-    mapping = {p;klhj
-    return float(data.get("price") or 0)
-
-
-    s = (long - short) * 0.9
-    s += -8 if funding > 0 else 8
-    return round(max(min(s, 100), -100), 2)
-
-
+from dotenv import load_dotenvhgjktfdbvbklj
 def label(s):
     if s >= 20:
         return "Bullish"
