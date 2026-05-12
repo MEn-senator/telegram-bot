@@ -6,17 +6,7 @@ import asyncio
 print("BOT TOKEN OK")
         async with session.get(ur
         "BTC": "BTCUSDT",
-iku;hi(data.get("lastFundingRate") or 0)
-
-
-async def get_open_interest(symbol):
-    data = await fetch_json(f"{BINANCE_FUTURES}/fapi/v1/openInterest?symbol={symbol}")
-    return float(data.get("openInterest") or 0)
-
-
-async def get_long_short(symbol):
-    data = await fetch_json(
-        f"{BINANCE_FUTURES}/futures/data/globalLongShortAccountRatio?symbol={symbol}&period=5m&limit=1"
+iku;hi(data.get("lastFundingRate") or 0)NCE_FUTURES}/futures/data/globalLongShortAccountRatio?symbol={symbol}&period=5m&limit=1"
     )
 
     if isinstance(data, list) and data:
