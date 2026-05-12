@@ -4,19 +4,7 @@ import aiohttp
 import asyncio
 
 print("BOT TOKEN OK")
-        async with session.get(url, timeout=10) as resp:
-            return await resp.json()
-    except:
-        return {}
-
-
-# =========================
-# SYMBOL NORMALIZER
-# =========================
-def normalize_symbol(symbol: str):
-    symbol = symbol.upper().replace("-", "").replace("_", "")
-
-    mapping = {
+        async with session.get(ur
         "BTC": "BTCUSDT",
 iku;hi(data.get("lastFundingRate") or 0)
 
