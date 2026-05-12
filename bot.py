@@ -110,23 +110,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text(
         "TRADER BOT ACTIVE",
-        reply_markup=ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
-    )
-
-
-# =========================
-# BUILD MESSAGE
-# =========================
-async def build(symbol):
-
-    sym = normalize_symbol(symbol)
-
-    price, funding, oi, (l, s) = await asyncio.gather(
-        get_price(sym),
-        get_funding(sym),
-        get_open_interest(sym),
-        get_long_short(sym)
-    )
+        reply_markup=ReplyKeyboardMarkup(keyboard, resize_keyboard=True
 
     sc = score(l, s, funding)
     lb = label(sc)
