@@ -9,23 +9,7 @@ from dotenv import load_dotenvhgjktfdbvb
 def normalize_symbol(symbol: str):
     symbol = symbol.upper().replace("-", "").replace("_", "")
 
-    mapping = {
-        "BTC": "BTCUSDT",
-        "ETH": "ETHUSDT",
-        "SOL": "SOLUSDT",
-        "BNB": "BNBUSDT",
-        "XRP": "XRPUSDT",
-        "DOGE": "DOGEUSDT"
-    }
-
-    return mapping.get(symbol, symbol + "USDT")
-
-
-# =========================
-# BINANCE DATA
-# =========================
-async def get_price(symbol):
-    data = await fetch_json(f"{BINANCE_FUTURES}/fapi/v1/ticker/price?symbol={symbol}")
+    mapping = {p;klhj
     return float(data.get("price") or 0)
 
 
