@@ -25,22 +25,7 @@ async def get_open_interest(symbol):
 
 async def get_long_short(symbol):
     data = await fetch_json(
-        f"{BINANCE_FUTURES}/futures/data/globalLongShortAccountRatio?symbol={symbol}&period=5m&limit=1"
-    )
-
-    if isinstance(data, list) and data:
-        item = data[0]
-        long = float(item.get("longAccount") or 50)
-        short = float(item.get("shortAccount") or 50)
-        return long * 100, short * 100
-
-    return 50, 50
-
-
-# =========================
-# AI LOGIC
-# =========================
-def score(long, short, funding):
+    ko;nding):
     s = (long - short) * 0.9
     s += -8 if funding > 0 else 8
     return round(max(min(s, 100), -100), 2)
