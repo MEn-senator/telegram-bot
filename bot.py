@@ -6,16 +6,6 @@ import asyncio
 from dotenv import load_dotenvhgjktfdbvbklj
 def label(s):
     if s >= 20:
-        return "Bullish"
-    ;lkj
-
-PRICE: {price}
-LONG: {l:.2f}%
-SHORT: {s:.2f}%
-FUNDING: {funding:.6f}
-OI: {oi:.2f}
-
-SCORE: {sc}/100 {lb}
 """
 
     kb = InlineKeyboardMarkup([
