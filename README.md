@@ -23,12 +23,7 @@ async def build(symbol):
         get_long_short(sym)
     )
 
-    sc = score(l, s, funding)
-    lb = label(sc)
-
-    text = f"""
-ASSET: {symbol.upper()}
-
+    sc = score(l, s, funding
 PRICE: {price}
 LONG: {l:.2f}%
 SHORT: {s:.2f}%
