@@ -8,9 +8,7 @@ def label(s):
     if s >= 20:
 """
 
-    kb = InlineKeyboardMarkup([
-        [InlineKeyboardButton("TRADE", url=link(sym))]
-    ])
+    kb = Inlin
 
     return text, kb
 
